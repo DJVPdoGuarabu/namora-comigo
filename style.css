@@ -1,0 +1,157 @@
+/* Importa uma fonte bonita do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); /* Degradê rosa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Aplica a nova fonte */
+    /* Cores do degradê animado */
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ee9ca7);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+/* body::before {
+    content: "❤️";
+    position: absolute;
+    top: -50px;
+    left: 10%;
+    font-size: 20px;
+    opacity: 0.5;
+     Cria várias sombras para parecerem vários corações 
+    text-shadow: 
+        15vw 20vh #fff, 35vw 45vh #fff, 55vw 15vh #fff, 
+        75vw 60vh #fff, 90vw 30vh #fff, 20vw 80vh #fff,
+        40vw 10vh #fff, 60vw 90vh #fff, 80vw 40vh #fff;
+    animation: floatHearts 15s linear infinite;
+    z-index: -1; /* Fica atrás de tudo 
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}*/
+
+#conteudo {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra suave */
+    height: auto;
+    max-width: 450px; 
+    width: 90%; /* Garante que fique bom no celular */
+    box-sizing: border-box;
+}
+
+.imagem-pedido {
+    width: 100%; /* Faz a imagem ocupar toda a largura do quadro branco */
+    height: auto; /* Mantém a proporção da imagem sem distorcer */
+    border-radius: 10px; /* Arredonda levemente os cantos da imagem */
+    margin-bottom: 25px; /* Espaço entre a imagem e os botões */
+    display: block; /* Remove espaços em branco indesejados abaixo da imagem */
+}
+
+
+.botoes {
+    display: flex;
+    /* Alinha os itens no início (esquerda) */
+    justify-content: flex-start; 
+    align-items: center;
+    position: relative;
+    height: 80px;
+    width: 100%;
+    /* Adiciona um espaço nas bordas da caixa branca */
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+.btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px; /* Bem arredondado */
+    transition: all 0.3s ease; /* Transição suave para efeitos */
+}
+
+/* Estilo do botão SIM */
+.btn-sim {
+    background-color: #8a2be2;
+    color: white;
+    /* O segredo: margem automática na direita empurra tudo o que vier depois */
+    margin-right: 20px; 
+    z-index: 5;
+}
+
+.btn-sim:hover {
+    background-color: #6a1b9a; /* Roxo mais escuro no hover */
+    transform: scale(1.1); /* Aumenta um pouquinho no hover */
+}
+
+/* Estilo do botão NÃO (inicial) */
+#btn-nao {
+    background-color: #e0e0e0;
+    color: #757575;
+    /* IMPORTANTE: Mantenha como static para ele ficar ao lado do SIM no início */
+    position: static; 
+    z-index: 10;
+}
+
+/* Animação que faz as cores "andarem" */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.coracao-emoji {
+    position: fixed; /* Fixado em relação à tela */
+    top: -50px;       /* Começa um pouco acima do topo da tela */
+    z-index: -1;      /* Fica atrás de tudo (do quadro branco e botões) */
+    opacity: 0.6;     /* Levemente transparente para não atrapalhar a leitura */
+    pointer-events: none; /* O mouse ignora o coração (pode clicar através dele) */
+    animation: cairERodar 15s linear forwards; /* Animação de 15 segundos */
+}
+
+/* Define a animação de queda e rotação */
+@keyframes cairERodar {
+    0% {
+        top: -50px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 110vh; /* Vai até abaixo do final da tela */
+        transform: rotate(360deg); /* Faz uma rotação completa */
+    }
+}
+
+#emoji-aceitou {
+    /* Força o fundo da imagem a ser transparente */
+    background-color: transparent !important; 
+    /* Remove qualquer borda ou sombra que possa ter vindo da imagem */
+    border: none !important;
+    box-shadow: none !important;
+    /* Garante que o navegador entenda que é um PNG com transparência */
+    mix-blend-mode: multiply; /* Opcional: ajuda a mesclar se houver imperfeições */
+}
+
+#emoji-cobranca-container {
+    position: fixed;        /* Fixado em relação à tela */
+    bottom: 20px;           /* 20px de distância do fundo */
+    right: 20px;            /* 20px de distância da direita */
+    z-index: 100;           /* Fica à frente de tudo (inclusive da chuva de corações) */
+    pointer-events: none;    /* O mouse ignora o emoji */
+}
+
+#emoji-cobranca-container img {
+    width: 120px;            /* Tamanho pequeno para o emoji */
+    height: auto;
+    border-radius: 50%;     /* Opcional: Arredonda as bordas se quiser */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para destacar */
+}
