@@ -101,7 +101,7 @@ function mostrarEmojiCobranca() {
 
     // 2. Cria a imagem do emoji (emoji-cobranca.png)
     const imgCobranca = document.createElement("img");
-    imgCobranca.src = "emojiCobranca.png";
+    imgCobranca.src = "EmojiCobranca.png";
     imgCobranca.alt = "Emoji Cobrando";
 
     // 3. Monta e adiciona o container ao corpo da página
