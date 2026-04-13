@@ -64,7 +64,7 @@ function aceitou() {
                 Aceitou o menor quente! &lt;3
             </h2>
 
-            <img src="aceitou.png" alt="Emoji muito feliz" id="emoji-aceitou"
+            <img src="Aceitou.png" alt="Emoji muito feliz" id="emoji-aceitou"
                  style="width: 300px; height: auto; margin: 20px 0;">
 
             <p style="color: #757575; font-size: 18px; line-height: 1.6; margin: 0; padding: 0 10px;">
